@@ -1,0 +1,221 @@
+:root {
+  color-scheme: dark;
+  --bg: #0b0d0f;
+  --panel: #14181b;
+  --line: #2a3034;
+  --text: #f4f1ea;
+  --muted: #9da7ad;
+  --accent: #d7b46a;
+  --hot: #df5045;
+  --cool: #5aa7c7;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: Inter, "Segoe UI", Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
+
+.shell {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+}
+
+.cockpit {
+  width: min(1120px, 100%);
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 18px;
+}
+
+.stage {
+  position: relative;
+  min-height: 380px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  background: #08090a;
+}
+
+#scene {
+  width: 100%;
+  height: 100%;
+  display: block;
+  min-height: 380px;
+}
+
+.readout {
+  position: absolute;
+  top: 22px;
+  left: 24px;
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  letter-spacing: 0;
+}
+
+.readout span {
+  color: var(--accent);
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.readout strong {
+  font-size: 44px;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+
+.readout small {
+  color: var(--muted);
+  font-weight: 700;
+}
+
+.controls {
+  display: grid;
+  grid-template-columns: minmax(320px, 440px) minmax(0, 1fr);
+  gap: 18px;
+}
+
+.meter-block,
+.slider-block {
+  border: 1px solid var(--line);
+  background: var(--panel);
+  padding: 18px;
+}
+
+#tach {
+  width: 100%;
+  height: 180px;
+  display: block;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.stats div {
+  border-top: 1px solid var(--line);
+  padding-top: 12px;
+}
+
+.stats span,
+.slider-block label {
+  color: var(--muted);
+  display: block;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.stats strong {
+  display: block;
+  margin-top: 6px;
+  font-size: 22px;
+  font-variant-numeric: tabular-nums;
+}
+
+.slider-block {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 18px;
+}
+
+input[type="range"],
+input[type="number"] {
+  width: 100%;
+  accent-color: var(--hot);
+}
+
+input[type="number"] {
+  height: 42px;
+  border: 1px solid #3c4449;
+  background: #0d1113;
+  color: var(--text);
+  font-size: 18px;
+  font-weight: 800;
+  padding: 0 12px;
+}
+
+#accelerationValue {
+  font-size: 22px;
+  font-variant-numeric: tabular-nums;
+}
+
+.buttons {
+  display: flex;
+  gap: 10px;
+}
+
+button {
+  min-width: 92px;
+  height: 42px;
+  border: 1px solid #3c4449;
+  background: #20262a;
+  color: var(--text);
+  font-weight: 800;
+  cursor: pointer;
+}
+
+button:hover {
+  border-color: var(--accent);
+}
+
+.source {
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.5;
+  margin: 0;
+}
+
+@media (max-width: 780px) {
+  .shell {
+    padding: 12px;
+  }
+
+  .controls {
+    grid-template-columns: 1fr;
+  }
+
+  .readout strong {
+    font-size: 34px;
+  }
+}
+
+.noise-trim {
+  border: 1px solid #2a3038;
+  border-radius: 6px;
+  padding: 0.65rem 0.9rem 0.75rem;
+  margin-top: 0.6rem;
+  display: grid;
+  grid-template-columns: 1fr 2.5fr auto;
+  gap: 0.25rem 0.5rem;
+  align-items: center;
+}
+.noise-trim legend {
+  font-size: 0.78rem;
+  color: #7a8591;
+  padding: 0 0.4rem;
+}
+.noise-trim label {
+  font-size: 0.72rem;
+  color: #9aa5b0;
+}
+.noise-trim input[type="range"] {
+  width: 100%;
+}
+.noise-trim strong {
+  font-size: 0.75rem;
+  color: #f4f1ea;
+  text-align: right;
+  min-width: 2.8rem;
+}

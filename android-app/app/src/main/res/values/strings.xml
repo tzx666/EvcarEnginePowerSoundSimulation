@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">BYD Super Pulse</string>
+    <string name="engine_switch">启用超级音浪</string>
+    <string name="style_label">声浪风格</string>
+    <string name="sport">运动 / 激情</string>
+    <string name="comfort">舒适</string>
+    <string name="scifi">科技 / 科幻</string>
+    <string name="intensity_label">音浪强度</string>
+    <string name="telemetry_label">车辆状态</string>
+    <string name="btn_byd_debug">BYD 调试</string>
+    <string name="btn_accel_sensor">加速度传感器</string>
+</resources>

@@ -1,0 +1,16 @@
+# OS / editor
+.DS_Store
+Thumbs.db
+.idea/
+
+# Build output and local Gradle state
+.gradle/
+build/
+**/build/
+
+# Android local machine config
+local.properties
+
+# Generated verification artifacts
+screenshot.png
+

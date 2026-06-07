@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:padding="32dp"
+    android:background="#f8f9fa">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/app_name"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:textColor="#333"
+        android:layout_marginBottom="8dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="选择功能模块"
+        android:textSize="14sp"
+        android:textColor="#888"
+        android:layout_marginBottom="48dp" />
+
+    <Button
+        android:id="@+id/btnBydDebug"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="BYD 调试"
+        android:textSize="16sp"
+        android:layout_marginBottom="16dp" />
+
+    <Button
+        android:id="@+id/btnAccelSensor"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="加速度传感器"
+        android:textSize="16sp" />
+
+</LinearLayout>

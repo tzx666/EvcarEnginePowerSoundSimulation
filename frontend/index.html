@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>V8 Engine Sound Lab</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <section class="cockpit" aria-label="engine sound throttle simulator">
+        <div class="stage">
+          <canvas id="scene" width="900" height="420" aria-hidden="true"></canvas>
+          <div class="readout">
+            <span id="status">READY</span>
+            <strong id="rpm">900</strong>
+            <small>RPM</small>
+          </div>
+        </div>
+
+        <div class="controls">
+          <div class="meter-block">
+            <canvas id="tach" width="280" height="180" aria-label="RPM tachometer"></canvas>
+            <div class="stats">
+              <div>
+                <span>Estimated throttle</span>
+                <strong id="throttleValue">0%</strong>
+              </div>
+              <div>
+                <span>Virtual gear</span>
+                <strong id="gearValue">N</strong>
+              </div>
+              <div>
+                <span>Load</span>
+                <strong id="loadValue">0.00</strong>
+              </div>
+            </div>
+          </div>
+
+          <div class="slider-block">
+            <label for="zeroToHundred">零百加速时间（秒）</label>
+            <input id="zeroToHundred" type="number" min="2" max="30" step="0.1" value="7.5" />
+            <label for="acceleration">当前纵向加速度（m/s²）</label>
+            <input id="acceleration" type="range" min="0" max="8" step="0.05" value="0" />
+            <strong id="accelerationValue">0.00 m/s²</strong>
+            <fieldset class="noise-trim">
+              <legend>噪声分层调节</legend>
+              <label for="mechNoise">引擎机械声</label>
+              <input id="mechNoise" type="range" min="0" max="200" step="1" value="100" />
+              <strong id="mechNoiseValue">100%</strong>
+              <label for="exhaustNoise">排气毛刺</label>
+              <input id="exhaustNoise" type="range" min="0" max="200" step="1" value="100" />
+              <strong id="exhaustNoiseValue">100%</strong>
+              <label for="exhaustTone">排气音浪</label>
+              <input id="exhaustTone" type="range" min="0" max="200" step="1" value="100" />
+              <strong id="exhaustToneValue">100%</strong>
+
+              <label for="intakeNoise">进气嘶声</label>
+              <input id="intakeNoise" type="range" min="0" max="200" step="1" value="100" />
+              <strong id="intakeNoiseValue">100%</strong>
+            </fieldset>
+
+            <div class="buttons">
+              <button id="start" type="button">Start</button>
+              <button id="stop" type="button">Stop</button>
+            </div>
+            <p class="source">
+              V8 Cross-Plane Synthesizer -- additive synthesis with burble LFO modeling.
+              Real V8 sample overlay (optional); synthesis engine always active.
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <audio
+      id="engineSample"
+      crossorigin="anonymous"
+      loop
+      preload="auto"
+      src="https://upload.wikimedia.org/wikipedia/commons/8/8a/Ferrari_250_GTO%2C_Engine_Sound.ogg"
+    ></audio>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
